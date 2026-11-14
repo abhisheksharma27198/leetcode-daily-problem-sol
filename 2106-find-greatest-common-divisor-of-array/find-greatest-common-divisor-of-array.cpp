@@ -1,17 +1,20 @@
 class Solution {
 public:
     int findGCD(vector<int>& nums) {
-        int s=*min_element(nums.begin(),nums.end());
-        int l=*max_element(nums.begin(),nums.end());
-        int gcd;
-        for(int i=1000;i>0;i--){
-            if(s%i==0&&l%i==0){
-                gcd=i;
-                break;
+        int m=*max_element(nums.begin(),nums.end());
+        int n=*min_element(nums.begin(),nums.end());
+        int m1=1;
+        for(int i=1;i<m;i++){
+            if(m%i==0&&n%i==0){
+               m1=max(m1,i);
             }
-
         }
-        return gcd;
+        if(m==n){
+            return m;
+        }
+        else{
+            return m1;
+        }
         
     }
 };
